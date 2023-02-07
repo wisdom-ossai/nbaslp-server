@@ -1,7 +1,7 @@
 import { model, Schema } from "mongoose";
 import { compare, hash } from "bcryptjs";
 import { sign } from "jsonwebtoken";
-import { SECRET } from "@slp/constants";
+import { SECRET } from "../constants";
 import { randomBytes } from "crypto";
 import { pick } from "lodash";
 

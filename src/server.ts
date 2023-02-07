@@ -4,14 +4,18 @@ import express from "express";
 import mongoose from "mongoose";
 import { json } from "body-parser";
 import { DB_URL, PORT } from "./constants";
+import routes from "./routes";
 
 const server = express();
 
 server.use(cors());
 server.use(json());
 
+server.use("/api/v1", routes);
+
 const main = () => {
   try {
+    mongoose.set("strictQuery", false);
     mongoose
       .connect(DB_URL)
       .then(() => {
